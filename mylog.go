@@ -15,14 +15,14 @@ func New() *Mylogger {
 	return &Mylogger{Name: "mylog", Path: "/var/log/"}
 }
 
-func Mylog(Name string) {
+func SetName(Name string) {
 	mylogger.Name = Name
 }
 
 func Log2file(log string) {
 
 	//创建日志文件
-	f, err := os.OpenFile(mylogger.Path+mylogger.Name, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+	f, err := os.OpenFile(mylogger.Path+mylogger.Name+".log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 	if err != nil {
 		return
 	}
